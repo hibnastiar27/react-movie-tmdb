@@ -65,3 +65,16 @@ export const getVideo = (id, callback) => {
 			console.log(err);
 		});
 };
+
+export const getTrending = (callback) => {
+	Axios.get(`${baseUrl}trending/movie/day${apiKey}`)
+		.then((res) => {
+			return res.data;
+		})
+		.then((res) => {
+			callback(res.results);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};

@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import {
 	getNowPlaying,
 	getGenre,
-	getDetails,
+	getTrending,
 } from "./services/product.service";
 import HomePage from "./pages/HomePage";
 function App() {
 	const [datas, setDatas] = useState([]);
 	const [genres, setGenres] = useState([]);
+	const [trendings, setTrendings] = useState([]);
 	useEffect(() => {
 		getNowPlaying((data) => {
 			setDatas(data);
@@ -19,9 +20,14 @@ function App() {
 			setGenres(data);
 		});
 	}, []);
+	useEffect(() => {
+		getTrending((data) => {
+			setTrendings(data);
+		});
+	});
 	return (
 		<div>
-			<HomePage datas={datas} genres={genres} />
+			<HomePage datas={datas} genres={genres} trendings={trendings} />
 		</div>
 	);
 }

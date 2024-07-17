@@ -1,35 +1,27 @@
-// import { Navbar } from "./components";
-import { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import {
-	getNowPlaying,
-	getGenre,
-	getTrending,
-} from "./services/product.service";
-import HomePage from "./pages/HomePage";
-function App() {
-	const [datas, setDatas] = useState([]);
-	const [genres, setGenres] = useState([]);
-	const [trendings, setTrendings] = useState([]);
-	useEffect(() => {
-		getNowPlaying((data) => {
-			setDatas(data);
-		});
-	}, []);
-	useEffect(() => {
-		getGenre((data) => {
-			setGenres(data);
-		});
-	}, []);
-	useEffect(() => {
-		getTrending((data) => {
-			setTrendings(data);
-		});
-	});
+	HomePages,
+	MoviePages,
+	TvShowsPages,
+	DetailsMoviesPages,
+	DetailsTvShowPages,
+} from "./pages";
+
+const App = () => {
 	return (
-		<div>
-			<HomePage datas={datas} genres={genres} trendings={trendings} />
-		</div>
+		<Router>
+			<div className="App">
+				<Routes>
+					<Route path="/" element={<HomePages />} />
+					<Route path="/movies" element={<MoviePages />} />
+					<Route path="/movies/:id" element={<DetailsMoviesPages />} />
+					<Route path="/tvshows" element={<TvShowsPages />} />
+					<Route path="/tvshows/:id" element={<DetailsTvShowPages />} />
+				</Routes>
+			</div>
+		</Router>
 	);
-}
+};
 
 export default App;

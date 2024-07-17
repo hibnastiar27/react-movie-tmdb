@@ -4,7 +4,7 @@ import { IMG_URL } from "../api";
 import { motion } from "framer-motion";
 
 const Card = (props) => {
-	const { imgThumb, title, rating, kunci } = props;
+	const { imgThumb, title, rating } = props;
 	return (
 		<motion.div className="p-3 bg-slate-700/50 border border-gray-700 backdrop-blur-lg rounded-xl">
 			<div className="relative">

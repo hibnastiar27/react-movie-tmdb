@@ -134,56 +134,54 @@ const HomePages = () => {
 									/>
 								</Link>
 							</motion.div>
-					  ))
+						))
 					: tabList[tab] === "All"
-					? all.map((item) => (
-							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 1, ease: "easeInOut" }}>
-								<Link to={`/${syncMediaType(item.media_type)}/${item.id}`}>
-									<Card
-										kunci={item.id}
-										title={item.name || item.title}
-										rating={item.vote_average}
-										imgThumb={item.poster_path}
-									/>
-								</Link>
-							</motion.div>
-					  ))
-					: tabList[tab] === "Movies"
-					? movies.map((item) => (
-							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 1, ease: "easeInOut" }}>
-								<Link to={`/movies/${item.id}`}>
-									<Card
-										kunci={item.id}
-										title={item.name || item.title}
-										rating={item.vote_average}
-										imgThumb={item.poster_path}
-									/>
-								</Link>
-							</motion.div>
-					  ))
-					: tvShows.map((item) => (
-							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 1, ease: "easeInOut" }}>
-								<Link to={`/tvshows/${item.id}`}>
-									<Card
-										kunci={item.id}
-										title={item.name || item.title}
-										rating={item.vote_average}
-										imgThumb={item.poster_path}
-									/>
-								</Link>
-							</motion.div>
-					  ))}
-				{/* All */}
-				{}
+						? all.map((item) => (
+								<motion.div
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ duration: 1, ease: "easeInOut" }}>
+									<Link to={`/${syncMediaType(item.media_type)}/${item.id}`}>
+										<Card
+											kunci={item.id}
+											title={item.name || item.title}
+											rating={item.vote_average}
+											imgThumb={item.poster_path}
+										/>
+									</Link>
+								</motion.div>
+							))
+						: tabList[tab] === "Movies"
+							? movies.map((item) => (
+									<motion.div
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										transition={{ duration: 1, ease: "easeInOut" }}>
+										<Link to={`/movies/${item.id}`}>
+											<Card
+												kunci={item.id}
+												title={item.name || item.title}
+												rating={item.vote_average}
+												imgThumb={item.poster_path}
+											/>
+										</Link>
+									</motion.div>
+								))
+							: tvShows.map((item) => (
+									<motion.div
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										transition={{ duration: 1, ease: "easeInOut" }}>
+										<Link to={`/tvshows/${item.id}`}>
+											<Card
+												kunci={item.id}
+												title={item.name || item.title}
+												rating={item.vote_average}
+												imgThumb={item.poster_path}
+											/>
+										</Link>
+									</motion.div>
+								))}
 			</div>
 		</div>
 	);
